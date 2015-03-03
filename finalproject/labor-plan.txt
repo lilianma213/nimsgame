@@ -1,0 +1,26 @@
+labor-plan.txt
+
+3. In your phase2 directory include also a document named labor-plan.txt
+(soft copy only) that describes the plan on how the programming effort
+will be distributed between the partners. Some programming for a joint
+project can be done together, but there should be parts that each
+individual student is largely responsible for developing.
+
+Both:
+CoinStack.java
+PlayerQueue.java
+
+Lilian Ma:
+NimGameGUI.java
+NimGame.java (interface)
+NimGameIntermediate.java
+Player.java
+HomePanel.java
+InstructionsPanel.java
+LevelPanel.java
+
+Sunnia Ye:
+NimGameBeginner.java
+NimGameAdvanced.java
+GamePanel.java
+*finding images

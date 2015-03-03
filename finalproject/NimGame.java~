@@ -1,0 +1,120 @@
+/*******************************************************************
+  * NimGame.java 
+  * Authors: Lilian Ma (L02) & Sunnia Ye (L01)
+  * Creates a game where when it is the computer's turn, it will 
+  *____________________________________. However, once there 
+  * is less than 10 coins left in the pile, it will play intelligently 
+  * (and aim to make you get stuck with 5 coins)
+  //********************************************************************/
+
+import java.util.*;
+import javafoundations.*;
+import javafoundations.exceptions.*;
+
+public class NimGame {
+  
+  private CoinStack stackOfCoins;
+  private PlayerQueue q;
+  private int last;
+  
+  // Constructor
+//  public NimGame() {
+//    CoinStack stackOfCoins = new CoinStack();
+//    PlayerQueue q = new PlayerQueue();
+//  }
+  
+  public NimGame(CoinStack stack, PlayerQueue players){
+    stackOfCoins = stack;
+    q = players;
+  }
+    
+  
+  public int numCoins() {
+    return stackOfCoins.numCoins();
+  }
+  
+  public CoinStack getCoinStack() {
+    return stackOfCoins;
+  }
+  
+  public void newCoinStack() {
+    CoinStack cs = new CoinStack();
+    stackOfCoins = cs;
+  }
+  
+  public PlayerQueue getPlayerQueue() {
+    return q;
+  }
+  
+  public void setPlayerQueue(Player ... adding) {
+    PlayerQueue temp = new PlayerQueue();
+    for (Player each: adding) {
+      temp.addPlayer(each);
+    }
+    q = temp;
+  }
+  
+  public int getLast() {
+    return last;
+  }
+  
+  /**********************************************************************
+    * Returns an answer to the query which player is next.
+    ********************************************************************/
+  public Player whoseTurn() {
+    return q.whoseTurn();
+  }
+  
+  public void oneTurn(int n) {
+    last = whoseTurn().takeCoin(n);
+    q.changeTurns();
+  }
+  
+  
+  
+  
+  /**********************************************************************
+    * Returns a string representation of the game.
+    ********************************************************************/
+  public String toString() {
+    String s = stackOfCoins.toString();
+    
+    s += "\nIt is " + whoseTurn().getName();
+    s += "'s turn to go next.";
+    
+    return s;
+  }
+  
+  
+  
+  public static void main(String args[]) {
+    System.out.println("Welcome to Nim Games! The current level is: Intermediate");
+    CoinStack st = new CoinStack();
+    Player human = new Player("Bob", st);
+    ComputerAdvPlayer comp = new ComputerAdvPlayer(st);
+    PlayerQueue p = new PlayerQueue();
+    p.addPlayer(human);
+    p.addPlayer(comp);
+    NimGame test = new NimGame(st, p);
+    System.out.println(test);
+      
+    test.oneTurn(2);
+    System.out.println(test);
+    test.oneTurn(2);
+    System.out.println(test);
+     test.oneTurn(2);
+    System.out.println(test);
+     test.oneTurn(2);
+    System.out.println(test);
+     test.oneTurn(2);
+    System.out.println(test);
+    test.oneTurn(2);
+    System.out.println(test);
+    test.oneTurn(2);
+    System.out.println(test);test.oneTurn(2);
+    System.out.println(test);
+    test.oneTurn(2);
+    System.out.println(test);
+  }
+  
+}
